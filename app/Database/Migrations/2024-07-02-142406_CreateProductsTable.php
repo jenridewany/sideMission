@@ -32,13 +32,6 @@ class CreateProductsTable extends Migration
                 'type'       => 'DECIMAL',
                 'constraint' => '10,2',
             ],
-            'quantity' => [
-                'type'       => 'SMALLINT'
-            ],
-            'description' => [
-                'type' => 'TEXT',
-                'null' => true,
-            ],
             'created_at' => [
                 'type' => 'TIMESTAMP',
                 'null' => true,
@@ -57,6 +50,6 @@ class CreateProductsTable extends Migration
 
     public function down()
     {
-        $this->forge->dropTable('products');
+        //
     }
 }

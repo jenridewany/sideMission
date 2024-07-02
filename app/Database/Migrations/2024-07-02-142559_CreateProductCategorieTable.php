@@ -34,6 +34,6 @@ class CreateProductCategorieTable extends Migration
 
     public function down()
     {
-        $this->forge->dropTable('product_categories');
+        //
     }
 }
