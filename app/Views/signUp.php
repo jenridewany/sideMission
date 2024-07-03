@@ -14,7 +14,7 @@
         <div class="register-left">
             <h2>WELCOME BACK!</h2>
             <p>To keep connected with us please login with your personal info</p>
-            <button class="btn">SIGN IN</button>
+            <a class="btn" href="sign-in">SIGN IN</a>
         </div>
         <div class="register-right">
             <h2>CREATE ACCOUNT</h2>
@@ -25,7 +25,7 @@
                     <?php endforeach; ?>
                 </div>
             <?php endif; ?>
-            <form method="post" action="<?= base_url(); ?>signup/process">
+            <form method="post" action="<?= base_url(); ?>sign-up/process">
                 <?= csrf_field(); ?>
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="USERNAME" name="username" required>

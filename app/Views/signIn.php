@@ -15,7 +15,7 @@
     <div class="signin-container">
         <img src="https://via.placeholder.com/100" alt="User Image">
         <h2>SIGN IN</h2>
-        <form method="post" action="<?= base_url(); ?>/signin/process">
+        <form method="post" action="<?= base_url(); ?>sign-in/process">
             <?= csrf_field(); ?>
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="USERNAME" name="username" required>
@@ -26,7 +26,7 @@
             <button type="submit" class="btn">SIGN IN</button>
         </form>
         <div class="signup-link">
-            <p>Don't have an account? <a href="<?= base_url(); ?>/signup">Create one now!</a></p>
+            <p>Don't have an account? <a href="<?= base_url(); ?>sign-up">Create one now!</a></p>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
