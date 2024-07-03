@@ -39,35 +39,22 @@
                     </tr>
                 </thead>
                 <tbody id="productTableBody">
-                    <?php
-                    // include 'db.php';
-                    
-                    // $sql = "SELECT * FROM products";
-                    // $result = $conn->query($sql);
-
-                    // if ($result->num_rows > 0) {
-                    //     while($row = $result->fetch_assoc()) {
-                    //         echo "<tr>
-                    //                 <td>{$row['id']}</td>
-                    //                 <td><img src='{$row['image']}' alt='Product Image'></td>
-                    //                 <td>{$row['name']}</td>
-                    //                 <td>\${$row['price']}</td>
-                    //                 <td>{$row['category']}</td>
-                    //                 <td>{$row['downloads']}</td>
-                    //                 <td>
-                    //                     <div class='action-buttons'>
-                    //                         <i class='fas fa-edit edit'></i>
-                    //                         <i class='fas fa-trash delete'></i>
-                    //                     </div>
-                    //                 </td>
-                    //               </tr>";
-                    //     }
-                    // } else {
-                    //     echo "<tr><td colspan='7'>No products found</td></tr>";
-                    // }
-
-                    // $conn->close();
-                    ?>
+                    <?php foreach($products as $product): ?>
+                        <tr>
+                            <td><?= esc($product['id']) ?></td>
+                            <td><img src="<?= esc($product['picture']) ?>" alt='Product Image'></td>
+                            <td><?= esc($product['name']) ?></td>
+                            <td><?= esc($product['price']) ?></td>
+                            <td><?= esc($product['category_name']) ?></td>
+                            <td><?= esc($product['download']) ?></td>
+                            <td>
+                                <div class='action-buttons'>
+                                    <i class='fas fa-edit edit'></i>
+                                    <i class='fas fa-trash delete'></i>
+                                </div>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>

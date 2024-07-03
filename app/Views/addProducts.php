@@ -20,7 +20,7 @@
     </div>
 
     <div class="content" id="content">
-        <form method="post" action="<?= base_url(); ?>add-products/process">
+        <form method="post" action="<?= base_url(); ?>add-products/process" enctype="multipart/form-data">
             <div class="header">
                 <h2>Add New Product</h2>
                 <button class="btn btn-primary" type="submit">Save Product</button>

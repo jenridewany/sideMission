@@ -13,7 +13,11 @@ class Products extends BaseController
     
     public function index()
     {
-        return view('listingProducts');
+        $productModel = new ProductModel();
+        
+        $session = session();
+        $data['products'] = $productModel->getProductsWithCategoryUser($session->user_id);
+        return view('listingProducts', $data);
     }
     public function add()
     {
@@ -40,10 +44,8 @@ class Products extends BaseController
         ];
         
         $img = $this->request->getFile('uploadImg');
-        var_dump($img); die;
         if (!$img->hasMoved()) {
-            $ext = $img->guessExtension(); // Get the file extension
-            $newName = $img->getRandomName().'.' . $ext;
+            $newName = $img->getRandomName();
 
             // Attempt to move the uploaded file to a new location.
             if ($img->move(ROOTPATH . 'public/'.$this->assetsProductDir, $newName)) {
