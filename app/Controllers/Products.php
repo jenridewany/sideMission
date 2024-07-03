@@ -13,6 +13,7 @@ class Products extends BaseController
     
     public function index()
     {
+<<<<<<< Updated upstream
         $productModel = new ProductModel();
         
         $session = session();
@@ -95,5 +96,12 @@ class Products extends BaseController
             // Handle the failure
             echo "Failed to delete product.";
         }
+=======
+        return view('creator/listingProducts');
+    }
+    public function add()
+    {
+        return view('creator/addProducts');
+>>>>>>> Stashed changes
     }
 }
