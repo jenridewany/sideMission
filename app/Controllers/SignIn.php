@@ -35,14 +35,15 @@ class SignIn extends BaseController
             if (password_verify($password, $user['password'])) {
                 // Set session data for authenticated user
                 $session->set([
+                    'user_id' => $user['id'],
                     'username' => $user['username'],
-                    'logged_in' => true,
-                    'role' => $user['role']
+                    'role' => $user['role'],
+                    'logged_in' => true
                 ]);
                 
                 if($user['role'] == 'creator') {
                     // Redirect to a success page or dashboard
-                    return redirect()->to('/creator');
+                    return redirect()->to('/products');
                 } else {
                     return redirect()->to('/dashboard');
                 }

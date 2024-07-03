@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
                 'constraint'     => 5,
                 'unsigned'       => true,
             ],
-            'title' => [
+            'name' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
             ],
@@ -28,9 +28,26 @@ class CreateProductsTable extends Migration
                 'type' => 'TEXT',
                 'null' => true,
             ],
+            'category' => [
+                'type'       => 'INT',
+                'constraint' => 5,
+            ],
             'price' => [
                 'type'       => 'DECIMAL',
                 'constraint' => '10,2',
+            ],
+            'stock' => [
+                'type'       => 'INT',
+                'constraint' => 5,
+            ],
+            'download' => [
+                'type'       => 'INT',
+                'constraint' => 5,
+            ],
+            'picture' => [
+                'type'       => 'VARCHAR',
+                'constraint' => 255,
+                'null' => true
             ],
             'created_at' => [
                 'type' => 'TIMESTAMP',

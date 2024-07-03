@@ -12,5 +12,6 @@ $routes->post('/sign-up/process', 'SignUp::process');
 $routes->get('/sign-in', 'SignIn::index');
 $routes->post('/sign-in/process', 'SignIn::process');
 
-$routes->get('/add-products', 'Products::add');
 $routes->get('/products', 'Products::index');
+$routes->get('/add-products', 'Products::add');
+$routes->post('/add-products/process', 'Products::addProduct');

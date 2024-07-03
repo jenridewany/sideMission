@@ -48,58 +48,6 @@ class Creator extends BaseController
         return view('products/edit', $data);
     }
     
-    public function addProduct()
-    {
-        $productModel = new ProductModel();
-
-        if ($this->request->getMethod() === 'post') {
-            $data = [
-                'title' => $this->request->getPost('title'),
-                'description' => $this->request->getPost('description'),
-                'price' => $this->request->getPost('price'),
-                'stock' => $this->request->getPost('stock')
-            ];
-
-            if ($productModel->save($data)) {
-                return redirect()->to('/products/show/' . $productModel->insertID());
-            } else {
-                // Show validation errors or handle the failure
-                var_dump($productModel->errors());
-            }
-        }
-    }
     
-    public function update($id)
-    {
-        $productModel = new ProductModel();
-
-        if ($this->request->getMethod() === 'post') {
-            $data = [
-                'title' => $this->request->getPost('title'),
-                'description' => $this->request->getPost('description'),
-                'price' => $this->request->getPost('price'),
-                'stock' => $this->request->getPost('stock')
-            ];
-
-            if ($productModel->update($id, $data)) {
-                return redirect()->to('/products/show/' . $id);
-            } else {
-                // Show validation errors or handle the failure
-                var_dump($productModel->errors());
-            }
-        }
-    }
-
-    public function delete($id)
-    {
-        $productModel = new ProductModel();
-
-        if ($productModel->delete($id)) {
-            return redirect()->to('/products');
-        } else {
-            // Handle the failure
-            echo "Failed to delete product.";
-        }
-    }
 }
 
