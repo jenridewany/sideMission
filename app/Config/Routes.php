@@ -13,4 +13,4 @@ $routes->get('/sign-in', 'SignIn::index');
 $routes->post('/sign-in/process', 'SignIn::process');
 
 $routes->get('/add-products', 'Products::add');
-$routes->get('/products', 'Products::add');
+$routes->get('/products', 'Products::index');

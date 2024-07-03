@@ -50,7 +50,7 @@ class SignUp extends BaseController
             'password' => $hashedPassword,
             'role' => $role
         ];
-
+        
         $usersModel = new UsersModel();
         $save = $usersModel->save($data);
 

@@ -29,7 +29,6 @@ class SignIn extends BaseController
             $user = $model->where('username', $username)->first();
         }
         
-        var_dump($user); die;
 
         if ($user) {
             // Verify password

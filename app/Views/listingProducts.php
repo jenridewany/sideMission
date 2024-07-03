@@ -4,117 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Outfit', sans-serif;
-            background-color: #f4f5f7;
-        }
-
-        .sidebar {
-            width: 250px;
-            background-color: #fff;
-            padding: 20px;
-            height: 100vh;
-            position: fixed;
-            left: 0;
-            top: 0;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .sidebar img {
-            display: block;
-            margin: 0 auto 20px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-        }
-
-        .content {
-            margin-left: 270px;
-            padding: 20px;
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .header h1 {
-            font-size: 24px;
-            margin: 0;
-        }
-
-        .header button {
-            background-color: #28a745;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .header button:hover {
-            background-color: #218838;
-        }
-
-        .table-container {
-            background-color: #fff;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        table th, table td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        table th {
-            background-color: #f4f5f7;
-        }
-
-        table td img {
-            width: 50px;
-            height: 50px;
-            object-fit: cover;
-            border-radius: 5px;
-        }
-
-        table td button {
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-
-        table td button:hover {
-            background-color: #0069d9;
-        }
-    </style>
+    <link rel="stylesheet" href="<?= base_url('css/styles-dashboard.css'); ?>">
 </head>
 <body>
-    <div class="sidebar">
-        <img src="logo.png" alt="Logo">
+    <div class="sidebar" id="sidebar">
+        <button class="toggle-btn" id="toggleBtn"><i class="fas fa-bars"></i></button>
+        <h3>Pixel Mingle</h3>
+        <ul>
+            <li><a href="#"><i class="fas fa-box"></i> <span>Product</span></a></li>
+            <li><a href="#"><i class="fas fa-shopping-cart"></i> <span>Sales</span></a></li>
+        </ul>
     </div>
 
     <div class="content">
         <div class="header">
             <h1>Products</h1>
-            <button>Add Product (+)</button>
+            <a href="/add-products" class="btn btn-primary">Add Product (+)</a>
         </div>
 
         <div class="table-container">
@@ -127,18 +35,39 @@
                         <th>Price</th>
                         <th>Category</th>
                         <th>Downloads</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td><img src="product_image.jpg" alt="Product Image"></td>
-                        <td>Name</td>
-                        <td>$3.0</td>
-                        <td>Category</td>
-                        <td>100</td>
-                    </tr>
-                    <!-- Add more rows as needed -->
+                <tbody id="productTableBody">
+                    <?php
+                    // include 'db.php';
+                    
+                    // $sql = "SELECT * FROM products";
+                    // $result = $conn->query($sql);
+
+                    // if ($result->num_rows > 0) {
+                    //     while($row = $result->fetch_assoc()) {
+                    //         echo "<tr>
+                    //                 <td>{$row['id']}</td>
+                    //                 <td><img src='{$row['image']}' alt='Product Image'></td>
+                    //                 <td>{$row['name']}</td>
+                    //                 <td>\${$row['price']}</td>
+                    //                 <td>{$row['category']}</td>
+                    //                 <td>{$row['downloads']}</td>
+                    //                 <td>
+                    //                     <div class='action-buttons'>
+                    //                         <i class='fas fa-edit edit'></i>
+                    //                         <i class='fas fa-trash delete'></i>
+                    //                     </div>
+                    //                 </td>
+                    //               </tr>";
+                    //     }
+                    // } else {
+                    //     echo "<tr><td colspan='7'>No products found</td></tr>";
+                    // }
+
+                    // $conn->close();
+                    ?>
                 </tbody>
             </table>
         </div>
