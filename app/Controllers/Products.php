@@ -13,19 +13,19 @@ class Products extends BaseController
     
     public function index()
     {
-<<<<<<< Updated upstream
         $productModel = new ProductModel();
         
         $session = session();
         $data['products'] = $productModel->getProductsWithCategoryUser($session->user_id);
-        return view('listingProducts', $data);
+        return view('/creator/listingProducts', $data);
     }
+
     public function add()
     {
         $category = new CategoriesModel();
         
         $data['categories'] = $category->findAll();
-        return view('addProducts', $data);
+        return view('creator/addProducts', $data);
     }
     
     public function addProduct()
@@ -66,19 +66,42 @@ class Products extends BaseController
             var_dump($productModel->errors());
         }
     }
+
+    public function edit($id)
+    {
+        $spesificProduct = new ProductModel();
+
+        $data['product'] = $spesificProduct->getProductById($id);
+        
+        if (!$data['product']) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('Product with ID ' . $id . ' not found.');
+        }
+
+        return view('creator/editProducts', $data);
+    }
     
     public function update($id)
     {
         $productModel = new ProductModel();
-        
+    
         $data = [
             'name' => $this->request->getPost('name'),
             'description' => $this->request->getPost('description'),
             'price' => $this->request->getPost('price'),
-            'stock' => $this->request->getPost('stock')
+            'stock' => $this->request->getPost('stock'),
+            'category' => $this->request->getPost('category')
         ];
 
-        if ($productModel->update($id, $data)) {
+        if ($imageFile = $this->request->getFile('image')) {
+            if ($imageFile->isValid() && !$imageFile->hasMoved()) {
+                $imageName = $imageFile->getRandomName();
+                $imageFile->move('uploads/', $imageName);
+                $data['image'] = 'uploads/' . $imageName;
+            }
+        }
+        var_dump($data);die();
+
+        if ($productModel->updateProduct($id, $data)) {
             return redirect()->to('/products/show/' . $id);
         } else {
             // Show validation errors or handle the failure
@@ -90,18 +113,11 @@ class Products extends BaseController
     {
         $productModel = new ProductModel();
 
-        if ($productModel->delete($id)) {
-            return redirect()->to('/products');
+        if ($productModel->deleteProduct($id)) {
+            return redirect()->to('/products')->with('success', 'Product deleted successfully');
         } else {
             // Handle the failure
             echo "Failed to delete product.";
         }
-=======
-        return view('creator/listingProducts');
-    }
-    public function add()
-    {
-        return view('creator/addProducts');
->>>>>>> Stashed changes
     }
 }

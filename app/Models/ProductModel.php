@@ -22,4 +22,25 @@ class ProductModel extends Model
                     ->where('products.user_id', $id)
                     ->findAll();
     }
+
+    public function getProductById($id)
+    {
+        return $this->find($id);
+    }
+
+    public function updateProduct($id, $data, $imageFile = null)
+    {
+        if ($imageFile && $imageFile->isValid() && !$imageFile->hasMoved()) {
+            $imageName = $imageFile->getRandomName();
+            $imageFile->move('uploads/', $imageName);
+            $data['image'] = 'uploads/' . $imageName;
+        }
+
+        return $this->update($id, $data);
+    }
+
+    public function deleteProduct($id)
+    {
+        return $this->delete($id);
+    }
 }

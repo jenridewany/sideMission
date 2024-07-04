@@ -15,6 +15,8 @@ $routes->get('/products', 'Products::index');
 $routes->get('/add-products', 'Products::add');
 $routes->post('/add-products/process', 'Products::addProduct');
 $routes->get('/add-products', 'Products::add');
-$routes->get('/edit-products', 'Products::edit');
-$routes->get('/products', 'Products::index');
+$routes->get('/edit-products/(:num)', 'Products::edit/$1');
+$routes->get('/update-products/process/(:num)', 'Products::update/$1');
 $routes->get('/dashboard', 'Users::index');
+$routes->get('/delete-products/(:num)', 'Products::delete/$1');
+

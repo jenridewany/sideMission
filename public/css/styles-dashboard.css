@@ -273,3 +273,11 @@ table td button:hover {
     font-size: 20px;
     margin: 0 5px;
 }
+.edit {
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: none;
+}
+.edit:hover {
+    color: #0056b3;
+}
