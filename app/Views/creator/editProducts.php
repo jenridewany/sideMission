@@ -32,9 +32,9 @@
                 <div class="card mb-4">
                     <h2>General Information</h2>
                     <label for="nameProduct">Name Product</label>
-                    <input type="text" id="nameProduct" placeholder="Name Product" value="<?= $product['name'] ?>">
+                    <input type="text" id="nameProduct" placeholder="Name Product" name="name" value="<?= $product['name'] ?>">
                     <label for="descriptionProduct">Description Product</label>
-                    <textarea id="descriptionProduct" rows="4" placeholder="Description Product"><?= $product['description'] ?></textarea>
+                    <textarea id="descriptionProduct" rows="4" placeholder="Description Product" name="description"><?= $product['description'] ?></textarea>
                 </div>
 
                 <div class="card">
@@ -42,21 +42,20 @@
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label for="price">Price (IDR)</label>
-                            <input type="number" id="price" placeholder="Price" value="<?= $product['price'] ?>">
+                            <input type="number" id="price" placeholder="Price" name="price" value="<?= $product['price'] ?>">
                         </div>
                         <div class="col-md-6">
                             <label for="stock">Stock</label>
-                            <input type="number" id="stock" placeholder="Stock" value="<?= $product['stock'] ?>">
+                            <input type="number" id="stock" placeholder="Stock" name="stock" value="<?= $product['stock'] ?>">
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label for="category">Category</label>
-                            <select id="category">
-                                <option value="<?= $product['category'] == 1 ? 'selected' : '' ?>" >Art</option>
-                                <option value="<?= $product['category'] == 2 ? 'selected' : '' ?>">Photo Assets</option>
-                                <option value="<?= $product['category'] == 3 ? 'selected' : '' ?>">Video Assets</option>
-                                <option value="<?= $product['category'] == 4 ? 'selected' : '' ?>">Lightroom Preset</option>
+                            <select id="category" name="category">
+                                <?php foreach($categories as $category): ?>
+                                    <option value="<?= $category['id'] ?>" selected="<?= $category['id'] == $product['category'] ? 'selected' : '' ?>"><?= $category['name'] ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
                     </div>
@@ -66,8 +65,8 @@
             <div class="col-md-4">
                 <div class="card mb-4 img-upload">
                     <h2>Upload Img</h2>
-                    <img src="<?= isset($product['image']) && $product['image'] ? base_url($product['image']) : 'https://via.placeholder.com/150' ?>" alt="Product Image">
-                    <input type="file" id="uploadImg">
+                    <img src="<?= isset($product['picture']) && $product['picture'] ? base_url($product['picture']) : 'https://via.placeholder.com/150' ?>" alt="Product Image">
+                    <input type="file" id="uploadImg" name="picture">
                     <label for="uploadImg">Choose Image</label>
                 </div>
             </div>
@@ -85,6 +84,15 @@
             sidebar.classList.toggle('minimized');
             content.classList.toggle('minimized');
         });
+        
+        document.getElementById('uploadImg').addEventListener('change', function (event) {
+            var reader = new FileReader();
+            reader.onload = function(){
+                var output = document.getElementById('productImage');
+                output.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        })
     </script>
 </body>
 </html>

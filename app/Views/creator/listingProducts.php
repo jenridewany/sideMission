@@ -24,6 +24,13 @@
             <h1>Products</h1>
             <a href="/add-products" class="btn btn-primary">Add Product (+)</a>
         </div>
+        
+        <?php if (session('message') !== null) : ?>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <?= session('message'); ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <?php endif; ?>
 
         <div class="table-container">
             <table>
@@ -47,7 +54,7 @@
                             <td><?= esc($product['price']) ?></td>
                             <td><?= esc($product['category_name']) ?></td>
                             <td><?= esc($product['download']) ?></td>
-                            <td>
+                            <td id="action">
                                 <div class='action-buttons'>
                                     <a href="<?= site_url('edit-products/'.$product['id']) ?>" class="edit"><i class="fas fa-edit"></i></a>
                                     <i class='fas fa-trash delete' data-id="<?= $product['id'] ?>"></i>
@@ -103,6 +110,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
     <script>
         const toggleBtn = document.getElementById('toggleBtn');
         const sidebar = document.getElementById('sidebar');
