@@ -15,6 +15,12 @@
     <div class="signin-container">
         <img src="https://via.placeholder.com/100" alt="User Image">
         <h2>SIGN IN</h2>
+        <?php if (session('message') !== null) : ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <?= session('message'); ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <?php endif; ?>
         <form method="post" action="<?= base_url(); ?>sign-in/process">
             <?= csrf_field(); ?>
             <div class="form-group">

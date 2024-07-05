@@ -11,28 +11,6 @@ class Products extends BaseController
 {
     private $assetsProductDir = 'assets/uploads';
     
-    /** Simpan data session */
-    protected $session;
-    
-    public function __construct()
-    {
-        // Load session library
-        $this->session = session();
-        $this->checkSession(); // Check session on controller load
-    }
-    
-
-    protected function checkSession()
-    {
-        // Check if user data exists in session
-        if (!$this->session->has('logged_in')) {
-            // If not, redirect to login page
-            return redirect()->to('/login')->with('error', 'Session not valid.');
-        } else if ($this->session->has('role') && $this->session->role != 'creator') {
-            return redirect()->to('/login')->with('error', 'You dont have permission to access this resource.');
-        }
-    }
-    
     public function index()
     {
         $productModel = new ProductModel();
@@ -84,15 +62,13 @@ class Products extends BaseController
         if ($productModel->save($data)) {
             return redirect()->to('/products'); // /show/' . $productModel->insertID());
         } else {
-            // Show validation errors or handle the failure
-            var_dump($productModel->errors());
+            return redirect()->to('/products')->with('message', $productModel->errors());
         }
     }
 
     public function edit($id)
     {
         $spesificProduct = new ProductModel();
-
         $data['product'] = $spesificProduct->getProductById($id);
         
         if (!$data['product']) {
@@ -115,7 +91,6 @@ class Products extends BaseController
     public function update($id)
     {
         $productModel = new ProductModel();
-        
         $oldData = $productModel->getProductById($id);
         
         if (!$oldData) {
@@ -155,8 +130,6 @@ class Products extends BaseController
         if ($productModel->updateProduct($id, $data)) {
             return redirect()->to('/products')->with('message', 'Successfully Edit '.$oldData['name']);
         } else {
-            // Show validation errors or handle the failure
-            // var_dump($productModel->errors());
             return redirect()->to('/products')->with('message', $productModel->errors());
         }
     }
@@ -164,7 +137,6 @@ class Products extends BaseController
     public function delete($id)
     {
         $productModel = new ProductModel();
-
         if ($productModel->deleteProduct($id)) {
             return redirect()->to('/products')->with('success', 'Product deleted successfully');
         } else {
