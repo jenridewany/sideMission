@@ -13,6 +13,6 @@ class Users extends BaseController
         
         $session = session();
         $data['products'] = $productModel->orderBy('id', 'desc')->findAll();
-        return view('user/home', $data);
+        return view('user/products', $data);
     }
 }

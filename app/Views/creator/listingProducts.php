@@ -15,7 +15,6 @@
         <h3>Pixel Mingle</h3>
         <ul>
             <li><a href="#"><i class="fas fa-box"></i> <span>Product</span></a></li>
-            <li><a href="#"><i class="fas fa-shopping-cart"></i> <span>Sales</span></a></li>
             <li><a href="#" onclick="showLogoutPopup()" class="profile"><i class="fas fa-sign-out-alt"></i> <span>Sign Out</span></a></li>
         </ul>
     </div>

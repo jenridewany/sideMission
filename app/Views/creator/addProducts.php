@@ -14,8 +14,7 @@
         <button class="toggle-btn" id="toggleBtn"><i class="fas fa-bars"></i></button>
         <h3>Pixel Mingle</h3>
         <ul>
-            <li><a href="#"><i class="fas fa-box"></i> <span>Product</span></a></li>
-            <!-- <li><a href="#"><i class="fas fa-shopping-cart"></i> <span>Sales</span></a></li> -->
+            <li><a href="/products"><i class="fas fa-box"></i> <span>Product</span></a></li>
             <li><a href="#" onclick="showLogoutPopup()" class="profile"><i class="fas fa-sign-out-alt"></i> <span>Sign Out</span></a></li>
         </ul>
     </div>
@@ -50,17 +49,9 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <!-- <div class="col-md-6">
-                                <label for="discount">Discount</label>
-                                <input type="number" id="discount" placeholder="Discount">
-                            </div> -->
                             <div class="col-md-6">
                                 <label for="category">Category</label>
                                 <select id="category" name="category">
-                                    <!-- <option value="1">Art</option>
-                                    <option value="2">Photo Assets</option>
-                                    <option value="3">Video Assets</option>
-                                    <option value="4">Lightroom Preset</option> -->
                                     <?php foreach($categories as $category): ?>
                                         <option value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
                                     <?php endforeach; ?>
