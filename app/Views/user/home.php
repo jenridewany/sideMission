@@ -155,7 +155,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <a href="<?= site_url('logout') ?>" class="btn btn-danger">Logout</a>
+                    <a href="<?= site_url('/sign-out') ?>" class="btn btn-danger">Logout</a>
                 </div>
             </div>
         </div>
