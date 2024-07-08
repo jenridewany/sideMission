@@ -13,11 +13,7 @@
 
 <body class="sign-in">
     <div class="signin-container">
-<<<<<<< .mine
         <img src="<?= base_url('assets/login.jpg'); ?>" alt="User Image">
-=======
-        <img src="<?= base_url('assets/pixel.png'); ?>" alt="User Image">
->>>>>>> .theirs
         <h2>SIGN IN</h2>
         <?php if (session('message') !== null) : ?>
         <div class="alert alert-danger alert-dismissible fade show" role="alert">

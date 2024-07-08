@@ -11,7 +11,7 @@ $routes->get('/sign-up', 'SignUp::index');
 $routes->post('/sign-up/process', 'SignUp::process');
 $routes->get('/sign-in', 'SignIn::index');
 $routes->post('/sign-in/process', 'SignIn::process');
-
+$routes->get('/sign-out', 'SignIn::logout');
 
 // tambahkan middleware authfilter untuk melakukan pengecekan session di halaman produk
 $routes->group('', ['filter' => 'authfilter'], function($routes) {

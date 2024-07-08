@@ -307,3 +307,47 @@ table td button:hover {
 .download-counter {
     padding: 10px;
 }
+
+/* Style for profile section at the bottom */
+.sidebar .profile {
+    margin-top: auto;
+}
+
+.sidebar .profile button {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    color: #fff;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+}
+
+.sidebar .profile button i {
+    margin-right: 5px;
+}
+
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.popup p {
+    margin-bottom: 10px;
+}
+
+.popup button {
+    padding: 5px 10px;
+    margin-right: 5px;
+    cursor: pointer;
+}

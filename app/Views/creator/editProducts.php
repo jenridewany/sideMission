@@ -15,7 +15,8 @@
         <h3>Pixel Mingle</h3>
         <ul>
             <li><a href="#"><i class="fas fa-box"></i> <span>Product</span></a></li>
-            <li><a href="#"><i class="fas fa-shopping-cart"></i> <span>Sales</span></a></li>
+            <!-- <li><a href="#"><i class="fas fa-shopping-cart"></i> <span>Sales</span></a></li> -->
+            <li><a href="#" onclick="showLogoutPopup()" class="profile"><i class="fas fa-sign-out-alt"></i> <span>Sign Out</span></a></li>
         </ul>
     </div>
 
@@ -73,8 +74,18 @@
         </div>
         </form>
     </div>
+    
+    <!-- Logout confirmation popup -->
+    <div class="popup" id="logoutPopup">
+        <p>Are you sure you want to log out?</p>
+        <div class="d-flex flex-row justify-content-around">
+            <button onclick="hideLogoutPopup()" class="btn btn-outline-danger w-100">Cancel</button>
+            <button onclick="logout()" class="btn btn-dark w-100">Logout</button>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= base_url('js/styles.js'); ?>"></script>
     <script>
         const toggleBtn = document.getElementById('toggleBtn');
         const sidebar = document.getElementById('sidebar');

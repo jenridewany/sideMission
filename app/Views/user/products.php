@@ -15,6 +15,7 @@
         <h3>Pixel Mingle</h3>
         <ul>
             <li><a href="#"><i class="fas fa-box"></i> <span>Product</span></a></li>
+            <li><a href="#" onclick="showLogoutPopup()" class="profile"><i class="fas fa-sign-out-alt"></i> <span>Sign Out</span></a></li>
         </ul>
     </div>
 
@@ -31,7 +32,7 @@
         <?php endif; ?>
 
         <div class="table-container">
-            <div class="container mt-5">
+            <div class="p-4">
                 <div class="row">
                     <?php foreach($products as $product): ?>
                         <div class="col-md-4 col-sm-6 mb-4">
@@ -50,9 +51,19 @@
             </div>
         </div>
     </div>
+    
+    <!-- Logout confirmation popup -->
+    <div class="popup" id="logoutPopup">
+        <p>Are you sure you want to log out?</p>
+        <div class="d-flex flex-row justify-content-around">
+            <button onclick="hideLogoutPopup()" class="btn btn-outline-danger w-100">Cancel</button>
+            <button onclick="logout()" class="btn btn-dark w-100">Logout</button>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="<?= base_url('js/styles.js'); ?>"></script>
     <script>
         function updateDownloadCount(productId) {
             $.ajax({
