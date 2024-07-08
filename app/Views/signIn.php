@@ -13,7 +13,7 @@
 
 <body class="sign-in">
     <div class="signin-container">
-        <img src="https://via.placeholder.com/100" alt="User Image">
+        <img src="<?= base_url('assets/login.jpg'); ?>" alt="User Image">
         <h2>SIGN IN</h2>
         <?php if (session('message') !== null) : ?>
         <div class="alert alert-danger alert-dismissible fade show" role="alert">

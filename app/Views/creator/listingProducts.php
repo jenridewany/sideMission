@@ -125,7 +125,10 @@
         let deleteId;
 
         deleteButtons.forEach(button => {
-            button.addEventListener('click', function () {
+            button.addEventListener('click', function (event) {
+                // Stop the event from propagating to the parent elements
+                event.stopPropagation();
+
                 deleteId = this.getAttribute('data-id');
                 const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
                 deleteModal.show();
@@ -147,13 +150,16 @@
 
         productRows.forEach(row => {
             row.addEventListener('click', function () {
-                productImage.src = this.getAttribute('data-image');
-                productName.textContent = this.getAttribute('data-name');
-                productDescription.textContent = this.getAttribute('data-description');
-                productPrice.textContent = this.getAttribute('data-price');
-                productCategory.textContent = this.getAttribute('data-category');
-                productDownloads.textContent = this.getAttribute('data-download');
-                detailModal.show();
+                const target = event.target.closest('#action')
+                if (!target) {
+                    productImage.src = this.getAttribute('data-image');
+                    productName.textContent = this.getAttribute('data-name');
+                    productDescription.textContent = this.getAttribute('data-description');
+                    productPrice.textContent = this.getAttribute('data-price');
+                    productCategory.textContent = this.getAttribute('data-category');
+                    productDownloads.textContent = this.getAttribute('data-download');
+                    detailModal.show();
+                }
             });
         });
     </script>

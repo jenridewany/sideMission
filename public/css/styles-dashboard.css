@@ -281,3 +281,16 @@ table td button:hover {
 .edit:hover {
     color: #0056b3;
 }
+
+.product-image {
+    border-radius: 10px;
+}
+
+.download-icon {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.product-image:hover .download-icon {
+    opacity: 1;
+}
