@@ -263,7 +263,7 @@ table td button {
     cursor: pointer;
     font-size: 14px;
 }
-
+ 
 table td button:hover {
     background-color: #0069d9;
 }
