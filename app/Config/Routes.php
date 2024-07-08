@@ -17,6 +17,7 @@ $routes->post('/sign-in/process', 'SignIn::process');
 $routes->group('', ['filter' => 'authfilter'], function($routes) {
     // user
     $routes->get('/dashboard', 'Users::index');
+    $routes->get('/download/(:num)', 'Products::download/$1');
     
     // halaman product
     // creator

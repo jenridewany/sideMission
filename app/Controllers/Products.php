@@ -144,4 +144,30 @@ class Products extends BaseController
             echo "Failed to delete product.";
         }
     }
+    
+    public function download($id) 
+    {
+        $productModel = new ProductModel();
+        
+        $check = $productModel->getProductById($id);
+        if ($check) {
+            // Update download count in the database using your model or query builder
+            $stock = (int) $check['stock'];
+            $download = (int) $check['download'];
+            if($stock < 1) {
+                return $this->response->setJSON(['success' => false, 'message' => 'Empty Stock']);
+            }
+            
+            $update = ['stock' => $stock-=1, 'download' => $download+=1];
+            $productModel->updateProduct($id, $update);
+            return $this->response->setJSON([
+                'success' => true,
+                'message' => 'Download count updated successfully',
+                'url' => base_url($check['picture']),
+                'downloaded' => $download+1
+            ]);
+        } else {
+            return $this->response->setJSON(['success' => false, 'message' => 'Invalid product id']);
+        }
+    }
 }
