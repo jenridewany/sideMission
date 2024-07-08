@@ -56,34 +56,33 @@
     <script>
         function updateDownloadCount(productId) {
             $.ajax({
-                url: "<?= base_url('download/') ?>" + productId, // Replace with your actual backend URL
+                url: "<?= base_url('download/') ?>" + productId,
                 method: 'GET',
                 
                 success: function (response) {
                     if (response.success) {
-                        $('#downloadCount_' + productId).text(response.downloaded);
-                        // window.open(response.url, '_blank');
+                        $('#downloadCount_' + productId).text('Downloaded: ' + response.downloaded);
                         
-                        // Create an anchor element with the download attribute
+                        // buar anchor element dengan download attribute
                         const anchorElement = document.createElement('a');
-                        anchorElement.href = response.url; // Use the file URL from the AJAX response
+                        anchorElement.href = response.url;
                         anchorElement.download = '';
                         anchorElement.style.display = 'none';
                         document.body.appendChild(anchorElement);
 
-                        // Open a new blank tab
+                        // open new blank window
                         const downloadWindow = window.open('about:blank', '_blank');
 
                         if (downloadWindow) {
-                            // Programmatically click on the anchor tag inside the new tab to start the file download process
+                            // klik tag untuk trigger download proses
                             setTimeout(() => {
                                 downloadWindow.document.body.appendChild(anchorElement);
                                 anchorElement.click();
-
-                                // After a brief delay, close the new tab
+                                
+                                // close tab download popup
                                 setTimeout(() => {
                                     downloadWindow.close();
-                                }, 500);
+                                }, 10);
                             }, 0);
                         } else {
                             alert('Failed to open download window.');
