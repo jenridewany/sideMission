@@ -19,7 +19,7 @@
         </ul>
     </div>
 
-    <div class="content">
+    <div class="content" id="content">
         <div class="header">
             <h1>Products</h1>
             <a href="/add-products" class="btn btn-primary">Add Product (+)</a>
@@ -132,15 +132,6 @@
     <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
     <script src="<?= base_url('js/styles.js'); ?>"></script>
     <script>
-        const toggleBtn = document.getElementById('toggleBtn');
-        const sidebar = document.getElementById('sidebar');
-        const content = document.getElementById('content');
-
-        toggleBtn.addEventListener('click', () => {
-            sidebar.classList.toggle('minimized');
-            content.classList.toggle('minimized');
-        });
-
         const deleteButtons = document.querySelectorAll('.delete');
         let deleteId;
 

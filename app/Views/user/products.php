@@ -19,7 +19,7 @@
         </ul>
     </div>
 
-    <div class="content">
+    <div class="content" id="content">
         <div class="header">
             <h1>Recently Products</h1>
         </div>
@@ -33,9 +33,12 @@
 
         <div class="table-container">
             <div class="p-4">
+                <div class="pb-3 d-flex flex-row justify-content-end">
+                    <input type="text" class="form-control w-25" id="searchInput" placeholder="Search by name or description...">
+                </div>
                 <div class="row">
                     <?php foreach($products as $product): ?>
-                        <div class="col-md-4 col-sm-6 mb-4">
+                        <div class="col-md-4 col-sm-6 mb-4" data-name="<?= strtolower(esc($product['name'])) ?>" data-desc="<?= strtolower(esc($product['description'])) ?>">
                             <div class="product-image position-relative overflow-hidden" data-id="<?= $product['id'] ?>">
                                 <img src="<?= base_url(esc($product['picture'])) ?>" onerror="this.src='<?= base_url('assets/error-image.jpg'); ?>'" alt="Product Image" class="img-fluid w-100">
                                 <div class="overlay position-absolute top-0 start-0 w-100 h-100 align-items-center justify-content-center bg-dark text-white fw-bold">
@@ -113,6 +116,22 @@
             var productId = $(this).closest('.product-image').data('id');
             console.log($(this).closest('.product-image'))
             updateDownloadCount(productId);
+        });
+        
+        document.getElementById("searchInput").addEventListener("input", function () {
+            const filter = this.value.toLowerCase();
+            const productItems = document.querySelectorAll(".col-md-4");
+
+            productItems.forEach((item) => {
+                const name = item.getAttribute("data-name");
+                const desc = item.getAttribute("data-desc");
+
+                if (name.includes(filter) || desc.includes(filter)) {
+                    item.style.display = "";
+                } else {
+                    item.style.display = "none";
+                }
+            });
         });
     </script>
 </body>
