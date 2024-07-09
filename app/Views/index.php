@@ -97,7 +97,7 @@
             <div class="skills-item">
               <div class="d-flex flex-fill">
                 <div class="skills-img">
-                  <img src="assets/image/skills/video editing.jpg" alt="">
+                  <img src="<?= base_url('assets/user1.png'); ?>" alt="">
                 </div>
                 <div class="skills-desc">
                   <h2>Aria</h2>
@@ -111,7 +111,7 @@
             <div class="skills-item">
               <div class="d-flex flex-fill">
                 <div class="skills-img">
-                  <img src="assets/image/skills/social-media.jpg" alt="">
+                  <img src="<?= base_url('assets/user3.png'); ?>" alt="">
                 </div>
                 <div class="skills-desc">
                   <h2>Ethan</h2>
@@ -125,7 +125,7 @@
             <div class="skills-item">
               <div class="d-flex flex-fill">
                 <div class="skills-img">
-                  <img src="assets/image/skills/project-management.jpg" alt="">
+                  <img src="<?= base_url('assets/user2.png'); ?>" alt="">
                 </div>
                 <div class="skills-desc">
                   <h2>Laura</h2>
@@ -139,7 +139,7 @@
             <div class="skills-item">
               <div class="d-flex flex-fill">
                 <div class="skills-img">
-                  <img src="assets/image/skills/developer.jpg" alt="">
+                  <img src="<?= base_url('assets/user4.png'); ?>" alt="">
                 </div>
                 <div class="skills-desc">
                   <h2>Breeze</h2>
