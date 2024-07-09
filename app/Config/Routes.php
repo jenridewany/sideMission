@@ -18,6 +18,13 @@ $routes->group('', ['filter' => 'authfilter'], function($routes) {
     // user
     $routes->get('/dashboard', 'Users::index');
     $routes->get('/download/(:num)', 'Products::download/$1');
+
+    
+    $routes->get('/profile', 'Users::profile');
+    $routes->get('/edit-profile', 'Users::editProfile');
+    $routes->get('/change-password', 'Users::changePass');
+    $routes->post('/update-profile/process', 'Users::update');
+    $routes->post('/change-password/process', 'Users::updatePass');
     
 });
 
@@ -32,6 +39,10 @@ $routes->group('', ['filter' => 'creatorfilter'], function($routes) {
     $routes->get('/delete-products/(:num)', 'Products::delete/$1');
 
     
-    $routes->get('/profile/(:num)', 'Users::profile/$1');
+    $routes->get('/profile', 'Users::profile');
+    $routes->get('/edit-profile', 'Users::editProfile');
+    $routes->get('/change-password', 'Users::changePass');
+    $routes->post('/update-profile/process', 'Users::update');
+    $routes->post('/change-password/process', 'Users::updatePass');
 });
 

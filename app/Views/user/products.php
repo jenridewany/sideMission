@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Management</title>
+    <title>Pixel Mingle</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
@@ -15,7 +15,19 @@
         <h3>Pixel Mingle</h3>
         <ul>
             <li><a href="#"><i class="fas fa-box"></i> <span>Product</span></a></li>
-            <li><a href="#" onclick="showLogoutPopup()" class="profile"><i class="fas fa-sign-out-alt"></i> <span>Sign Out</span></a></li>
+            <li></li>
+            <li style="position: absolute; bottom: 0; display: block; width: 50%;">
+                <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Profile</span>
+                </a>
+                <div class="btn-group dropend">
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="<?= site_url('profile') ?>" class="profile"><i class="fas fa-user"></i>Profile</a>
+                        <a class="dropdown-item" href="#" onclick="showLogoutPopup()" class="profile"><i class="fas fa-sign-out-alt"></i>Sign Out</a>
+                    </div>
+                </div>
+            </li>
         </ul>
     </div>
 

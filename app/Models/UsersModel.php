@@ -12,10 +12,13 @@ class UsersModel extends Model
     protected $useTimestamps = true;
 
     public function getProfile($id) {
-        return $this->select('*')
-                    ->from('users')
-                    ->where('id', $id)
-                    ->findAll();
+        return $this->find($id);
     }
+
+    public function updateProfile($id, $data,)
+    {
+        return $this->update($id, $data);
+    }
+    
 }
  

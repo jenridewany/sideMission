@@ -253,7 +253,7 @@ table td img {
     object-fit: cover;
     border-radius: 5px;
 }
-
+ 
 table td button {
     background-color: #007bff;
     color: #fff;
@@ -353,4 +353,74 @@ table td button:hover {
 
 .dropdown-toggle::after {
     display:none;
+}
+
+.profile{
+    text-align: center;
+    align-items: center;
+}
+
+.profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    float: center;
+}
+
+.profile input{
+    width: 400px;
+    text-align: center;
+}
+
+.profile select{
+    width: 400px;
+    text-align: center;
+}
+
+.profile .btn{
+    width: 400px;
+    margin-bottom: 10px;
+}
+
+h1{
+    margin-bottom: 20px;
+}
+
+.card {
+    padding: 100px;
+    align-items: center;
+}
+ 
+.change-pass .form-group {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 15px;
+    position: relative;
+}
+.change-pass .form-group input {
+    width: 50vh;
+    padding: 10px;
+    border-radius: 10px;
+}
+.change-pass .form-group i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+.change-pass button .btn {
+  background-color: black;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: all 0.3s;
+  width: 400px;
+}
+.change-pass button .btn:hover {
+  background-color: #fff;
+  color: black;
+  border: 2px solid black;
 }

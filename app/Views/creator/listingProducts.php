@@ -23,7 +23,7 @@
                 </a>
                 <div class="btn-group dropend">
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#" class="profile"><i class="fas fa-user"></i>Profile</a>
+                        <a class="dropdown-item" href="<?= site_url('profile') ?>" class="profile"><i class="fas fa-user"></i>Profile</a>
                         <a class="dropdown-item" href="#" onclick="showLogoutPopup()" class="profile"><i class="fas fa-sign-out-alt"></i>Sign Out</a>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
             <h1>Products</h1>
             <a href="/add-products" class="btn btn-primary">Add Product (+)</a>
         </div>
-        <?php if (session('message') !== null && session('role')=='creator') : ?>
+        <?php if (session('message') !== null ) : ?>
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
             <?= session('message'); ?>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
