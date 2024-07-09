@@ -19,6 +19,9 @@ $routes->group('', ['filter' => 'authfilter'], function($routes) {
     $routes->get('/dashboard', 'Users::index');
     $routes->get('/download/(:num)', 'Products::download/$1');
     
+});
+
+$routes->group('', ['filter' => 'creatorfilter'], function($routes) {
     // halaman product
     // creator
     $routes->get('/products', 'Products::index');

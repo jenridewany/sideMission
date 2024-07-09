@@ -16,9 +16,9 @@
     <div class="signin-container">
         <img src="<?= base_url('assets/login.jpg'); ?>" alt="User Image">
         <h2>SIGN IN</h2>
-        <?php if (session('message') !== null) : ?>
+        <?php if (session('message') !== null || session('error') !== null) : ?>
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <?= session('message'); ?>
+            <?= session('message') ?? session('error'); ?>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         <?php endif; ?>
