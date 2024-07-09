@@ -15,7 +15,19 @@
         <h3>Pixel Mingle</h3>
         <ul>
             <li><a href="/products"><i class="fas fa-box"></i> <span>Product</span></a></li>
-            <li><a href="#" onclick="showLogoutPopup()" class="profile"><i class="fas fa-sign-out-alt"></i> <span>Sign Out</span></a></li>
+            <li></li>
+            <li style="position: absolute; bottom: 0; display: block; width: 50%;">
+                <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Profile</span>
+                </a>
+                <div class="btn-group dropend">
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#" class="profile"><i class="fas fa-user"></i>Profile</a>
+                        <a class="dropdown-item" href="#" onclick="showLogoutPopup()" class="profile"><i class="fas fa-sign-out-alt"></i>Sign Out</a>
+                    </div>
+                </div>
+            </li>
         </ul>
     </div>
 

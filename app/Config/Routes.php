@@ -30,5 +30,8 @@ $routes->group('', ['filter' => 'creatorfilter'], function($routes) {
     $routes->get('/edit-products/(:num)', 'Products::edit/$1');
     $routes->post('/update-products/process/(:num)', 'Products::update/$1');
     $routes->get('/delete-products/(:num)', 'Products::delete/$1');
+
+    
+    $routes->get('/profile/(:num)', 'Users::profile/$1');
 });
 

@@ -14,11 +14,7 @@
 
 <body class="sign-in">
     <div class="signin-container">
-<<<<<<< Updated upstream
         <img src="<?= base_url('assets/login.jpg'); ?>" alt="User Image">
-=======
-        <img src="<?= base_url('assets/pixel.png'); ?>" alt="User Image">
->>>>>>> Stashed changes
         <h2>SIGN IN</h2>
         <?php if (session('message') !== null || session('error') !== null) : ?>
         <div class="alert alert-danger alert-dismissible fade show" role="alert">

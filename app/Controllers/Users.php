@@ -15,4 +15,12 @@ class Users extends BaseController
         $data['products'] = $productModel->orderBy('id', 'desc')->findAll();
         return view('user/products', $data);
     }
+
+    public function profile($id)
+    {
+        $usersModel = new UsersModel();
+
+        $data['profile'] = $usersModel->getProfile($id);
+        return view('profiles', $data);
+    }
 }
