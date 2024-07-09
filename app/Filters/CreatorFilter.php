@@ -4,7 +4,7 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\Filters\FilterInterface;
 
-class AuthFilter implements FilterInterface
+class CreatorFilter implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
@@ -16,9 +16,7 @@ class AuthFilter implements FilterInterface
         
         # cek route
         # jika role bukan creator, batasi akses ke halaman creator
-        $creator_access = ['products', 'add-products', 'edit-products/([0-9]+)'];
-        
-        if(session('role') != 'creator' && in_array(service('router')->getMatchedRoute()[0], $creator_access)) {
+        if(session('role') != 'creator') {
             return redirect()->to('/sign-in')->with('error', 'You dont have access to this resource');
         }
     }
