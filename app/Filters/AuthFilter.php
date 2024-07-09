@@ -13,6 +13,14 @@ class AuthFilter implements FilterInterface
             // If not, redirect to login page
             return redirect()->to('/sign-in')->with('error', 'Session not valid');
         }
+        
+        # cek route
+        # jika role bukan creator, batasi akses ke halaman creator
+        $creator_access = ['products', 'add-products', 'edit-products/([0-9]+)'];
+        
+        if(session('role') != 'creator' && in_array(service('router')->getMatchedRoute()[0], $creator_access)) {
+            return redirect()->to('/sign-in')->with('error', 'You dont have access to this resource');
+        }
     }
 
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
