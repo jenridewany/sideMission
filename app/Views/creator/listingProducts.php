@@ -59,7 +59,7 @@
                 <tbody id="productTableBody">
                     <?php $index = 1; ?>
                     <?php foreach($products as $product): ?>
-                        <tr data-bs-toggle="modal" data-bs-target="#detailModal" data-id="<?= esc($product['id']) ?>" data-name="<?= esc($product['name']) ?>" data-description="<?= esc($product['description']) ?>" data-price="<?= esc($product['price']) ?>" data-category="<?= esc($product['category_name']) ?>" data-download="<?= esc($product['download']) ?>" data-image="<?= esc($product['picture']) ?>">
+                        <tr data-bs-toggle="modal" data-id="<?= esc($product['id']) ?>" data-name="<?= esc($product['name']) ?>" data-description="<?= esc($product['description']) ?>" data-price="<?= esc($product['price']) ?>" data-category="<?= esc($product['category_name']) ?>" data-download="<?= esc($product['download']) ?>" data-image="<?= esc($product['picture']) ?>">
                             <td><?= $index ?></td>
                             <td><img src="<?= esc($product['picture']) ?>" alt='Product Image'></td>
                             <td><?= esc($product['name']) ?></td>
