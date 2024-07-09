@@ -15,7 +15,19 @@
         <h3>Pixel Mingle</h3>
         <ul>
             <li><a href="#"><i class="fas fa-box"></i> <span>Product</span></a></li>
-            <li><a href="#" onclick="showLogoutPopup()" class="profile"><i class="fas fa-sign-out-alt"></i> <span>Sign Out</span></a></li>
+            <li></li>
+            <li style="position: absolute; bottom: 0; display: block; width: 50%;">
+                <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Profile</span>
+                </a>
+                <div class="btn-group dropend">
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#" class="profile"><i class="fas fa-user"></i>Sign Out</a>
+                        <a class="dropdown-item" href="#" onclick="showLogoutPopup()" class="profile"><i class="fas fa-sign-out-alt"></i>Sign Out</a>
+                    </div>
+                </div></a>
+            </li>
         </ul>
     </div>
 
@@ -128,8 +140,9 @@
     </div>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
     <script src="<?= base_url('js/styles.js'); ?>"></script>
     <script>
         const deleteButtons = document.querySelectorAll('.delete');

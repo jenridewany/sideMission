@@ -308,9 +308,8 @@ table td button:hover {
     padding: 10px;
 }
 
-/* Style for profile section at the bottom */
-.sidebar .profile {
-    margin-top: auto;
+.profile {
+    justify-content: normal
 }
 
 .sidebar .profile button {
@@ -350,4 +349,8 @@ table td button:hover {
     padding: 5px 10px;
     margin-right: 5px;
     cursor: pointer;
+}
+
+.dropdown-toggle::after {
+    display:none;
 }
