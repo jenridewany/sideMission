@@ -50,7 +50,7 @@
                             <input type="password" class="form-control" placeholder="CONFIRM PASSWORD" name="confirmPassword" required>
                             <i class="fa fa-eye" id="toggleConfirmPassword"></i>
                         </div>
-                        <button type="submit" class="btn btn-primary">Change Password</button>
+                        <button type="submit" class="btn btn-save">Change Password</button>
                     </div>
             </form>
     </div>

@@ -387,7 +387,7 @@ h1{
     margin-bottom: 20px;
 }
 
-.card {
+.card .change-pass{
     padding: 100px;
     align-items: center;
 }
@@ -410,14 +410,14 @@ h1{
     transform: translateY(-50%);
     cursor: pointer;
 }
-.change-pass button .btn {
+.btn-save {
   background-color: black;
   color: #fff;
   border: none;
   padding: 10px 20px;
   border-radius: 10px;
   transition: all 0.3s;
-  width: 400px;
+  width: 500px;
 }
 .change-pass button .btn:hover {
   background-color: #fff;
