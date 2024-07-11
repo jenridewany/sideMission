@@ -14,7 +14,8 @@
         <button class="toggle-btn" id="toggleBtn"><i class="fas fa-bars"></i></button>
         <h3>Pixel Mingle</h3>
         <ul>
-            <li><a href="<?= site_url('products') ?>"><i class="fas fa-box"></i> <span>Product</span></a></li>
+            <li><a href="/admin-dashboard"><i class="fas fa-user"></i> <span>User</span></a></li>
+            <li><a href="/admin-dashboard/category"><i class="fas fa-box"></i> <span>Category</span></a></li>
             <li></li>
             <li style="position: absolute; bottom: 0; display: block; width: 50%;">
                 <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -32,23 +33,24 @@
     </div>
 
     <div class="content" id="content">
-        <form>
-                <div class="row">
-                    <div class="card col-md-11 profile">
-                        <img src="<?= base_url('assets/login.jpg'); ?>" alt="User Image">
-                        <?php if (session('message') !== null || session('error') !== null) : ?>
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <?= session('message') ?? session('error'); ?>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                        <?php endif; ?>
-                        <input type="text" id="username" placeholder="Username" name="username" value="<?=$user['username'] ?>" disabled>
-                        <input type="text" id="email" placeholder="email" name="email" value="<?=$user['email'] ?>" disabled>
-                        <input type="text" id="role" placeholder="role" name="role" value="<?=$user['role'] ?>" disabled>
-                        <a class="btn-coral" href="<?= base_url(); ?>edit-profile">Edit Profile</a>
-                        <a class="btn-black" href="<?= base_url(); ?>change-password">Change Password</a>
+        <form method="post" action="<?= base_url(); ?>admin-dashboard/add-category/process" enctype="multipart/form-data">
+            <div class="header">
+                <h2>Add Category</h2>
+                <button class="btn-coral" type="submit">Save Category</button>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card mb-4">
+                        <h2>General Information</h2>
+                        <label for="categoryName">Category Name</label>
+                        <input type="text" id="categoryName" placeholder="Category Name" name="name" require>
+                        <label for="categoryDesc">Description Category</label>
+                        <textarea id="categoryDesc" rows="4" placeholder="Category Description"  name="description" require></textarea>
                     </div>
-            </form>
+
+            </div>
+        </form>
     </div>
     
     <!-- Logout confirmation popup -->
@@ -60,10 +62,17 @@
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
     <script src="<?= base_url('js/styles.js'); ?>"></script>
-    
+    <script>        
+        document.getElementById('uploadImg').addEventListener('change', function (event) {
+            var reader = new FileReader();
+            reader.onload = function(){
+                var output = document.getElementById('productImage');
+                output.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        })
+    </script>
 </body>
 </html>

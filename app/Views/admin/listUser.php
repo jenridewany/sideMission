@@ -14,7 +14,8 @@
         <button class="toggle-btn" id="toggleBtn"><i class="fas fa-bars"></i></button>
         <h3>Pixel Mingle</h3>
         <ul>
-            <li><a href="<?= site_url('products') ?>"><i class="fas fa-box"></i> <span>Product</span></a></li>
+            <li><a href="#"><i class="fas fa-user"></i> <span>User</span></a></li>
+            <li><a href="/admin-dashboard/categories"><i class="fas fa-box"></i> <span>Category</span></a></li>
             <li></li>
             <li style="position: absolute; bottom: 0; display: block; width: 50%;">
                 <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -32,24 +33,45 @@
     </div>
 
     <div class="content" id="content">
-        <form>
-                <div class="row">
-                    <div class="card col-md-11 profile">
-                        <img src="<?= base_url('assets/login.jpg'); ?>" alt="User Image">
-                        <?php if (session('message') !== null || session('error') !== null) : ?>
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <?= session('message') ?? session('error'); ?>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                        <?php endif; ?>
-                        <input type="text" id="username" placeholder="Username" name="username" value="<?=$user['username'] ?>" disabled>
-                        <input type="text" id="email" placeholder="email" name="email" value="<?=$user['email'] ?>" disabled>
-                        <input type="text" id="role" placeholder="role" name="role" value="<?=$user['role'] ?>" disabled>
-                        <a class="btn-coral" href="<?= base_url(); ?>edit-profile">Edit Profile</a>
-                        <a class="btn-black" href="<?= base_url(); ?>change-password">Change Password</a>
-                    </div>
-            </form>
+        <div class="header">
+            <h1>List Account</h1>
+        </div>
+        <?php if (session('message') !== null ) : ?>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <?= session('message'); ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <?php endif; ?>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Date Created</th>
+                    </tr>
+                </thead>
+                <tbody id="userTableBody">
+                    <?php $index = 1; ?>
+                    <?php foreach($users as $user): ?>
+                        <tr data-bs-toggle="modal" data-id="<?= esc($user['id']) ?>" data-name="<?= esc($user['username']) ?>" data-email="<?= esc($user['email']) ?>" data-role="<?= esc($user['role']) ?>" data-created="<?= esc($user['created_at']) ?>" >
+                            <td><?= $index ?></td>
+                            <td><?= esc($user['username']) ?></td>
+                            <td><?= esc($user['email']) ?></td>
+                            <td><?= esc($user['role']) ?></td>
+                            <td><?= esc($user['created_at']) ?></td>
+                        </tr>
+                        <?php $index++; ?>
+                    <?php endforeach; ?>
+                </tbody>
+
+            </table>
+        </div>
     </div>
+
     
     <!-- Logout confirmation popup -->
     <div class="popup" id="logoutPopup">
@@ -60,10 +82,10 @@
         </div>
     </div>
 
+
     <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
     <script src="<?= base_url('js/styles.js'); ?>"></script>
-    
 </body>
 </html>
