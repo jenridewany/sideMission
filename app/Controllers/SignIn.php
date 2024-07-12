@@ -44,6 +44,9 @@ class SignIn extends BaseController
                 if($user['role'] == 'creator') {
                     // Redirect to a success page or dashboard
                     return redirect()->to('/products');
+                }else if($user['role'] == 'superadmin') {
+                    // Redirect to a success page or dashboard
+                    return redirect()->to('/admin-dashboard');
                 } else {
                     return redirect()->to('/dashboard');
                 }

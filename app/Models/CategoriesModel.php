@@ -8,4 +8,10 @@ class CategoriesModel extends Model
     protected $primaryKey = 'id';
 
     protected $allowedFields = ['name', 'description'];
+
+    
+    public function getCategoryById($id)
+    {
+        return $this->find($id);
+    }
 }

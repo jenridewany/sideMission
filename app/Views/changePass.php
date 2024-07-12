@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile Management</title>
+    <title>Pixel Mingle</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
@@ -34,7 +34,7 @@
     <div class="content" id="content">
         <form method="post" action="<?= base_url('change-password/process'); ?>" enctype="multipart/form-data">
                 <div class="row">
-                    <div class="card col-md-11 change-pass">
+                    <div class="card col-md-11 profile">
                         <h1>Change Password</h1>
                         <?php if (session('message') !== null || session('error') !== null) : ?>
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -50,7 +50,8 @@
                             <input type="password" class="form-control" placeholder="CONFIRM PASSWORD" name="confirmPassword" required>
                             <i class="fa fa-eye" id="toggleConfirmPassword"></i>
                         </div>
-                        <button type="submit" class="btn btn-save">Change Password</button>
+                        <a class="btn-coral" href="<?= base_url(); ?>profile">Cancel</a>
+                        <button type="submit" class="btn-black">Change Password</button>
                     </div>
             </form>
     </div>

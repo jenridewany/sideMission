@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Management</title>
+    <title>Pixel Mingle</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
@@ -23,7 +23,7 @@
                 </a>
                 <div class="btn-group dropend">
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#" class="profile"><i class="fas fa-user"></i>Profile</a>
+                        <a class="dropdown-item" href="/profile" class="profile"><i class="fas fa-user"></i>Profile</a>
                         <a class="dropdown-item" href="#" onclick="showLogoutPopup()" class="profile"><i class="fas fa-sign-out-alt"></i>Sign Out</a>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
         <form method="post" action="<?= base_url(); ?>add-products/process" enctype="multipart/form-data">
             <div class="header">
                 <h2>Add New Product</h2>
-                <button class="btn btn-primary" type="submit">Save Product</button>
+                <button class="btn-coral" type="submit">Save Product</button>
             </div>
 
             <div class="row">
@@ -43,9 +43,9 @@
                     <div class="card mb-4">
                         <h2>General Information</h2>
                         <label for="nameProduct">Name Product</label>
-                        <input type="text" id="nameProduct" placeholder="Name Product" name="name">
+                        <input type="text" id="nameProduct" placeholder="Name Product" name="name" require>
                         <label for="descriptionProduct">Description Product</label>
-                        <textarea id="descriptionProduct" rows="4" placeholder="Description Product"  name="description"></textarea>
+                        <textarea id="descriptionProduct" rows="4" placeholder="Description Product"  name="description" require></textarea>
                     </div>
 
                     <div class="card">
@@ -53,11 +53,11 @@
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <label for="price">Price (IDR)</label>
-                                <input type="number" id="price" placeholder="Price" name="price">
+                                <input type="number" id="price" placeholder="Price" name="price" require>
                             </div>
                             <div class="col-md-6">
                                 <label for="stock">Stock</label>
-                                <input type="number" id="stock" placeholder="Stock" name="stock">
+                                <input type="number" id="stock" placeholder="Stock" name="stock" require>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -96,16 +96,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="<?= base_url('js/styles.js'); ?>"></script>
-    <script>
-        const toggleBtn = document.getElementById('toggleBtn');
-        const sidebar = document.getElementById('sidebar');
-        const content = document.getElementById('content');
-
-        toggleBtn.addEventListener('click', () => {
-            sidebar.classList.toggle('minimized');
-            content.classList.toggle('minimized');
-        });
-        
+    <script>        
         document.getElementById('uploadImg').addEventListener('change', function (event) {
             var reader = new FileReader();
             reader.onload = function(){

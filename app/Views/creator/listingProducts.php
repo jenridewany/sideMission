@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Management</title>
+    <title>Pixel Mingle</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
@@ -34,7 +34,7 @@
     <div class="content" id="content">
         <div class="header">
             <h1>Products</h1>
-            <a href="/add-products" class="btn btn-primary">Add Product (+)</a>
+            <a href="/add-products" class="btn-coral">Add Product (+)</a>
         </div>
         <?php if (session('message') !== null ) : ?>
         <div class="alert alert-warning alert-dismissible fade show" role="alert">

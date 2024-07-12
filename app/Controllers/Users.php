@@ -65,7 +65,7 @@ class Users extends BaseController
         }
 
         if ($usersModel->updateProfile($id, $data)) {
-            return redirect()->to('/profile')->with('message', 'Successfully Edit '.$oldData['username']);
+            return redirect()->to('/profile')->with('success', 'Successfully Edit '.$oldData['username']);
         } else {
             return redirect()->to('/editProfile')->with('message', $usersModel->errors());
         }

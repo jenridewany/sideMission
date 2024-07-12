@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile Management</title>
+    <title>Pixel Mingle</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
@@ -45,8 +45,8 @@
                         <input type="text" id="username" placeholder="Username" name="username" value="<?=$user['username'] ?>" disabled>
                         <input type="text" id="email" placeholder="email" name="email" value="<?=$user['email'] ?>" disabled>
                         <input type="text" id="role" placeholder="role" name="role" value="<?=$user['role'] ?>" disabled>
-                        <a class="btn" href="<?= base_url(); ?>edit-profile">Edit Profile</a>
-                        <a class="btn" href="<?= base_url(); ?>change-password">Change Password</a>
+                        <a class="btn-coral" href="<?= base_url(); ?>edit-profile">Edit Profile</a>
+                        <a class="btn-black" href="<?= base_url(); ?>change-password">Change Password</a>
                     </div>
             </form>
     </div>
