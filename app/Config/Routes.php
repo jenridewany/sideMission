@@ -47,7 +47,7 @@ $routes->group('', ['filter' => 'creatorfilter'], function($routes) {
 });
 
 
-// $routes->group('', ['filter' => 'adminFilter'], function($routes) {
+$routes->group('', ['filter' => 'adminFilter'], function($routes) {
     // halaman product
     // creator
     $routes->get('/admin-dashboard', 'Admin::index');
@@ -55,5 +55,5 @@ $routes->group('', ['filter' => 'creatorfilter'], function($routes) {
     $routes->get('/admin-dashboard/add-category', 'Admin::addCategory');
     $routes->get('/admin-dashboard/add-category/process', 'Admin::addCategoryProcess');
     $routes->get('/admin-dashboard/edit-category/(:num)', 'Admin::editCategory/$1');
-// });
+});
 

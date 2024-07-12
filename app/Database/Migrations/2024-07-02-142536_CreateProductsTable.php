@@ -31,6 +31,7 @@ class CreateProductsTable extends Migration
             'category' => [
                 'type'       => 'INT',
                 'constraint' => 5,
+                'unsigned'   => true,
             ],
             'price' => [
                 'type'       => 'DECIMAL',
@@ -62,6 +63,7 @@ class CreateProductsTable extends Migration
         ]);
         $this->forge->addKey('id', true);
         $this->forge->addForeignKey('user_id', 'users', 'id');
+        $this->forge->addForeignKey('category', 'categories', 'id');
         $this->forge->createTable('products');
     }
 
